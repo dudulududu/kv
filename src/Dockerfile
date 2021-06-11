@@ -1,0 +1,5 @@
+From grpc
+
+COPY . .
+
+

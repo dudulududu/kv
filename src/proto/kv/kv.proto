@@ -1,0 +1,22 @@
+syntax = "proto3";
+package kv;
+
+option go_package = "kv";
+
+service KV {
+    rpc Get(CommandArg) returns (CommandReply) {}
+    rpc PutAppend(CommandArg) returns (CommandReply) {}
+}
+
+message CommandArg {
+    string Key = 1;
+    string Value = 2;
+    string Op = 3;
+    int64 Cid = 4;
+    int32 Seq = 5;
+}
+
+message CommandReply {
+    string Err = 1;
+    string Value = 2;
+}
